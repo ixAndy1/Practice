@@ -6,9 +6,11 @@ public class IsUnique {
     String sequence = "A;lkjqwer,mn123kd";
 
 
-    boolean check_Unique(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            return !s.contains(sequence.charAt(i));
+    boolean check_Unique(String s)
+    {
+        for (int i = 0; i < s.length(); i++)
+        {
+
 
         }
 
