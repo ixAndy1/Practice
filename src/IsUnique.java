@@ -2,15 +2,20 @@
 // With & Without implementing additional data structures
 
 public class IsUnique {
-    boolean check_Unique(String s)
+    private static boolean check_Unique(String s)
     {
-        for (int i = 1; i < s.length(); i++)
-        {
-            if (s.lastIndexOf(s.charAt(i), (i - 1)) < 0) {
-                return false;
+        boolean flag = true;
+
+        for (int i = 1; i < s.length(); i++) {
+            flag = s.lastIndexOf(s.charAt(i), (i - 1)) < 0;
             }
-        }
-        return true;
+
+        return flag;
+    }
+
+    public static void main(String[] args) {
+        String sequence = "abcd";
+        System.out.println(check_Unique(sequence));
     }
 
 }
