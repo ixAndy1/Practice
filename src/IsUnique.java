@@ -3,18 +3,19 @@
 // With & Without implementing additional data structures
 
 public class IsUnique {
-    String sequence = "A;lkjqwer,mn123kd";
-
-
     boolean check_Unique(String s)
     {
-        for (int i = 0; i < s.length(); i++)
+        for (int i = 1; i < s.length(); i++)
         {
-
-
+            if (s.lastIndexOf(s.charAt(i), (i - 1)) < 0) {
+                return false;
+            }
         }
-
-        return check_Unique(sequence);
+        return true;
     }
 }
+
+
+
+
 
