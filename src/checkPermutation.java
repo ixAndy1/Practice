@@ -28,7 +28,7 @@ public class checkPermutation {
         String s1 = "abcd";
         String s2 = "dbca";
 
-        //False 
+        //False
         String s3 = "abcdef";
         String s4 = "fegcba";
 
