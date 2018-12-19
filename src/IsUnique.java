@@ -2,20 +2,30 @@
 // With & Without implementing additional data structures
 
 public class IsUnique {
-    private static boolean check_Unique(String s)
-    {
-        boolean flag = true;
 
-        for (int i = 1; i < s.length(); i++) {
-            flag = s.lastIndexOf(s.charAt(i), (i - 1)) < 0;
+    //Data-Structure Implementation
+
+    static boolean DSI_Unique(String s)
+    {
+        boolean[] answerSet = new boolean[256]; //256 ASCII Characters
+
+        for (int i = 0; i < s.length(); i++) {
+            int value = s.charAt(i); //Value = ASCII representation (numerical)
+
+            if (answerSet[value]) //If ASCII numerical representation (character) is already in the array
+            {
+                return false;
             }
 
-        return flag;
+            answerSet[value] = true; //If not contained, enters character's ASCII code into the array
+        }
+        return true;
     }
+    
 
     public static void main(String[] args) {
-        String sequence = "abcd";
-        System.out.println(check_Unique(sequence));
+        String sequence = "abacd";
+        System.out.println(DSI_Unique(sequence));
     }
 
 }
