@@ -1,15 +1,16 @@
 /*
 Write a method to replace all spaces in a string with '%20'
-Use a character array to perform the operation in place
  */
 
 public class URLify {
-    static private String URL_this(String s) {
-        char[] content = s.toCharArray();
+    //String method
+    private static String URLify_this(String s) {
+        s = s.replaceAll(" ", "%20");
+        return s;
     }
 
     public static void main(String[] args) {
         String s = "My name is Andrew";
-        System.out.println(URL_this(s));
+        System.out.println(URLify_this(s));
     }
 }
