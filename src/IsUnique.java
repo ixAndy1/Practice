@@ -5,7 +5,7 @@ public class IsUnique {
 
     //Data-Structure Implementation
 
-    static boolean DSI_Unique(String s)
+    private static boolean DSI_Unique(String s)
     {
         boolean[] answerSet = new boolean[256]; //256 ASCII Characters
 
@@ -21,11 +21,24 @@ public class IsUnique {
         }
         return true;
     }
-    
+
+    //Non Data Structure Implementation
+
+    private static boolean NDSI_Unique(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.indexOf(s.charAt(i)) < i) //If the character at i occurs anytime before s.charAt(i), return false
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
-        String sequence = "abacd";
+        String sequence = "abcd";
         System.out.println(DSI_Unique(sequence));
+        System.out.println(NDSI_Unique(sequence));
     }
 
 }
