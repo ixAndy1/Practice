@@ -20,11 +20,10 @@ public class ReverseString {
     //Character array with specified start/end indices
     private static void reverse2(char[] array, int firstIndex, int lastIndex) {
         char temp;
-        int size = lastIndex;
 
         for (int i = firstIndex; i < array.length / 2; i++) {
-            temp = array[size - 1 - i];
-            array[size - 1 - i] = array[i];
+            temp = array[lastIndex - 1 - i];
+            array[lastIndex - 1 - i] = array[i];
             array[i] = temp;
         }
 
@@ -48,7 +47,6 @@ public class ReverseString {
         char[] test = example.toCharArray();
         reverse2(test, 0, test.length);
 
-        char[] sentence = {'W', 'o', 'r', 'l', 'd', ' ', 'H', 'e', 'l', 'l', 'o'};
 
     }
 }
