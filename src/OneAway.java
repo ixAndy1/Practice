@@ -6,6 +6,7 @@ Given two strings, write a function to check if they are one (or zero) edits awa
 
 public class OneAway {
     private static boolean check_One_Away(String s1, String s2) {
+
         if (s1.equalsIgnoreCase(s2)) //If equal (ignoring case differences)
         {
             return true;
@@ -14,6 +15,34 @@ public class OneAway {
         if (Math.abs(s1.length() - s2.length()) > 1) //If difference in length > 1
         {
             return false;
+        }
+
+        if (s1.length() < s2.length()) // (1) Character Insertion
+        {
+            for (int i = 0; i < s2.length(); i++) {
+                char[] charArray = new char[s1.length()];
+
+                if (s1.charAt(i) == s2.charAt(i)) {
+                    charArray[i] = s1.charAt(i);
+                } else {
+                    charArray[i] = s2.charAt(i);
+                }
+            }
+
+        }
+
+        if (s1.length() > s2.length()) // (2) Character Delete
+        {
+            char[] charArray = new char[s1.length()];
+
+            for (int i = 0; i < s2.length(); i++) {
+                if (s1.charAt(i) == s2.charAt(i)) {
+                    charArray[i] = s1.charAt(i);
+                } else {
+                    charArray[i] = Character.MIN_VALUE; //Empty character
+                }
+            }
+
         }
 
         if (s1.length() == s2.length()) // (3) Character Replacement
@@ -31,6 +60,13 @@ public class OneAway {
             }
         }
 
-        
+        return true;
+    }
+
+    private static void main(String[] args) {
+        String one = "pale";
+        String two = "pale";
+
+        System.out.println(check_One_Away(one, two));
     }
 }
