@@ -10,14 +10,10 @@ public class OneAway {
         if (s1.equalsIgnoreCase(s2)) //If equal (ignoring case differences)
         {
             return true;
-        }
-
-        if (Math.abs(s1.length() - s2.length()) > 1) //If difference in length > 1
+        } else if (Math.abs(s1.length() - s2.length()) > 1) //If difference in length > 1
         {
             return false;
-        }
-
-        if (s1.length() < s2.length()) // (1) Character Insertion
+        } else if (s1.length() < s2.length()) // (1) Character Insertion
         {
             for (int i = 0; i < s2.length(); i++) {
                 char[] charArray = new char[s1.length()];
@@ -28,10 +24,7 @@ public class OneAway {
                     charArray[i] = s2.charAt(i);
                 }
             }
-
-        }
-
-        if (s1.length() > s2.length()) // (2) Character Delete
+        } else if (s1.length() > s2.length()) // (2) Character Delete
         {
             char[] charArray = new char[s1.length()];
 
@@ -43,9 +36,7 @@ public class OneAway {
                 }
             }
 
-        }
-
-        if (s1.length() == s2.length()) // (3) Character Replacement
+        } else  // (3) Character Replacement
         {
             int difference = 0;
 
@@ -63,7 +54,7 @@ public class OneAway {
         return true;
     }
 
-    private static void main(String[] args) {
+    public static void main(String[] args) {
         String one = "pale";
         String two = "pale";
 
