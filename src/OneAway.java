@@ -55,14 +55,19 @@ public class OneAway {
             case -1: // (1) Character Insertion
             {
 
-                char[] charArray = new char[s2.length()];
+                char[] charArray = new char[s2.length()]; //Empty array
+
+                for (int i = 0; i < charArray.length - 1; i++) {
+                    charArray[i] = s1.charAt(i); //Fill empty array
+                }
 
                 for (int i = 0; i < s2.length(); i++) {
-                    if (s1.charAt(i) == s2.charAt(i)) {
+                    if (charArray[i] == s2.charAt(i)) {
                         charArray[i] = s1.charAt(i);
                         System.out.println("No");
 
                     } else {
+                        charArray[i] = s2.charAt(i);
                         System.out.println("Hit");
                     }
 
