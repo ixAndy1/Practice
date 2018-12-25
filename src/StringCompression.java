@@ -7,15 +7,15 @@ public class StringCompression {
 
     private static StringBuilder compress(String s) {
 
-        int count = 1;
+        int count = 0;
 
-        for (int i = 0; i < s.length() - 1; i++) {
-            if (s.charAt(i) == s.charAt(i + 1)) {
-                count++;
-            } else {
+        for (int i = 0; i < s.length(); i++) {
+            count++; //Automatically count atleast one character
+
+            if (((i + 1) == s.length()) || (s.charAt(i) != s.charAt(i + 1))) {
                 result.append(s.charAt(i));
                 result.append(count);
-                count = 1;
+                count = 0;
             }
 
         }
@@ -23,7 +23,7 @@ public class StringCompression {
     }
 
     public static void main(String[] args) {
-        String test = "aaa";
+        String test = "aaabaaaacccd";
 
         System.out.println(compress(test));
     }
