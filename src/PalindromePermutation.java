@@ -24,9 +24,12 @@ public class PalindromePermutation {
         int oddCounter = 0;
         Enumeration keyList = hashTable.keys();
 
-        while (keyList.hasMoreElements()) {
+        while (keyList.hasMoreElements())
+        {
+
             char key = (Character) keyList.nextElement(); //Keys
             int value = hashTable.get(key); //Corresponding values
+
             System.out.println((key + " " + value));
 
             if (((value % 2) == 1) && (key != ' ')) //Odd counter, excluding space
