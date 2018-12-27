@@ -4,15 +4,19 @@ Write an algorithm to rotate a 2d Array 90 degrees.
 
 import java.util.Arrays;
 
-public class RotateMatrix {
-    private static String rotate(int[][] matrix) {
+public class RotateMatrix
+{
+    private static String rotate(int[][] matrix)
+    {
         int n = matrix.length;
 
-        for (int layer = 0; layer < n / 2; layer++) {
+        for (int layer = 0; layer < n / 2; layer++)
+        {
             int first = layer;
             int last = n - 1 - layer;
 
-            for (int i = first; i < last; i++) {
+            for (int i = first; i < last; i++)
+            {
                 int offset = i - first;
                 int top = matrix[first][i];
 
@@ -33,7 +37,8 @@ public class RotateMatrix {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         int[][] array = new int[][]
 
                 {
