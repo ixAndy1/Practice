@@ -1,5 +1,7 @@
 /*
 Remove duplicates from an unsorted (singly) linked list
+Note: This solution uses a hashTable to print non-duplicates.
+Other possible solution: Relink the linked list (must be doubly).
  */
 
 import java.util.Enumeration;
