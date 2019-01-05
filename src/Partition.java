@@ -26,11 +26,40 @@ public class Partition
         node6.next = node7;
         node7.next = node8;
 
+        part(head,5);
+
     }
 
-    private static void part(Node head, int x)
+    private static void part(Node node, int x)
     {
-        
+       Node greaterList = node;
+       Node lessList = node;
+
+       while (node != null)
+       {
+           Node next = node.next; // *
+
+           if (node.data < x) // Adds to lessList
+           {
+               node.next = lessList;
+               lessList = node;
+           }
+           else // Adds to greaterList
+           {
+               greaterList.next = node;
+               greaterList = node;
+           }
+           node = next;
+          // node = node.next; <- Never ends 
+       }
+       greaterList.next = null;
+
+
+        while (lessList != null)
+        {
+            System.out.print(lessList.data + " ");
+            lessList = lessList.next;
+        }
     }
 
     static class Node
