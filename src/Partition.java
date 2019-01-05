@@ -50,7 +50,7 @@ public class Partition
                greaterList = node;
            }
            node = next;
-          // node = node.next; <- Never ends 
+          // node = node.next; <- Never ends
        }
        greaterList.next = null;
 
@@ -62,15 +62,5 @@ public class Partition
         }
     }
 
-    static class Node
-    {
-        int data;
-        Node next;
-
-        Node (int data)
-        {
-            this.data = data;
-        }
-    }
 
 }
