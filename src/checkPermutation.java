@@ -4,13 +4,15 @@ is a permutation of the other
 
 
 public class checkPermutation {
-    private static boolean check_Permutation(String s1, String s2) {
+    private static boolean check_Permutation(String s1, String s2)
+    {
         if (s1.length() != s2.length()) //If sentences are different lengths, automatically return false
         {
             return false;
         }
 
-        for (int i = 0; i < s1.length(); i++) {
+        for (int i = 0; i < s1.length(); i++)
+        {
             char character = s1.charAt(i);
 
             if (s2.indexOf(character) < 0) //If s2 does not contain s1[i]
