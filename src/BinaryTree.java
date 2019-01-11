@@ -87,6 +87,45 @@ public void testContains()
 
 }
 
+//In Order Traversal
+// Left subtree -> Root -> Right subtree
+public static void inOrder(TreeNode node)
+{
+    System.out.println("In Order Traversal: ");
+    if (node != null)
+    {
+        inOrder(node.left);
+        System.out.print(" " + node.value);
+        inOrder(node.right);
+    }
+}
+
+//Pre Order Traversal
+// Root -> Left Subtree -> Right subtree
+public static void preOrder(TreeNode node)
+{
+    System.out.println("Pre Order Traversal: ");
+    if (node != null)
+    {
+        System.out.print(" " + node.value);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+}
+
+//Post Order Traversal
+//Left Subtree -> Right subtree -> Root
+public static void postOrder (TreeNode node)
+{
+    System.out.println("Post Order Traversal: ");
+    if (node != null)
+    {
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(" " + node.value);
+    }
+}
+
 private TreeNode deleteRecursive(TreeNode current, int value)
 {
     if (current == null)
@@ -96,7 +135,34 @@ private TreeNode deleteRecursive(TreeNode current, int value)
 
     if (value == current.value)
     {
-        //Node to delete found
+        //If node is a leaf node
+        if (current.left == null && current.right == null)
+        {
+            return null;
+        }
+
+        //If node has one child
+        if (current.right == null)
+        {
+            return current.left;
+        }
+
+        if (current.left == null)
+        {
+            return current.right;
+        }
+
+        //If node has two children
+
+        //First, we need to find the node that will replace the deleted node.
+        // We’ll use the smallest node of the node to be deleted’s right sub-tree:
+        int smallestValue = findSmallestValue(current.right);
+
+        //Then, we assign the smallest value to the node to delete and after that,
+        // we’ll delete it from the right subtree:
+        current.value = smallestValue;
+        current.right = deleteRecursive(current.right, smallestValue);
+        return current;
     }
 
     if (value < current.value)
@@ -124,4 +190,29 @@ class TreeNode
     }
 }
 
+//Finds the smallest node of the node's subtree
+private int findSmallestValue(TreeNode root)
+{
+        return root.left == null
+                ? root.value
+                : findSmallestValue(root.left);
+
 }
+
+public void delete(int value)
+    {
+        root = deleteRecursive(root, value);
+    }
+
+@Test
+public void deleteTest()
+{
+        BinaryTree bt = createExampleBinaryTree();
+
+        assertTrue(bt.containsTreeNode(6));
+        bt.delete(6);
+        assertFalse(bt.containsTreeNode(6));
+    }
+
+}//End
+
