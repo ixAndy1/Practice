@@ -9,10 +9,11 @@ public class TwoSum
     public static void main(String[] args)
     {
         int[] array = {1,2,3,4,5,6,7,8,9,10};
+        int[] array2 = new int[20];
 
         findPair(array, 15);
     }
-    
+
     private static boolean findPair(int[] array, int sum)
     {
         HashSet<Integer> set = new HashSet<Integer>();
