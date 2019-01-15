@@ -7,7 +7,7 @@ public class Fibonacci
 
     private static int fibonacci (int n)
     {
-        if (n <= 1)
+        if (n < 2)
         {
             return n;
         }
