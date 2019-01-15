@@ -1,7 +1,10 @@
 //Implement an algorithm to determine if a String has all unique characters.
 // With & Without implementing additional data structures
 
-public class IsUnique {
+import java.util.HashSet;
+
+public class IsUnique
+{
 
     //Data-Structure Implementation
 
@@ -22,10 +25,32 @@ public class IsUnique {
         return true;
     }
 
+    //HashSet Method
+    private static boolean set_Unique(String s)
+    {
+        HashSet<Character> set = new HashSet<Character>();
+
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (set.contains(s.charAt(i)))
+            {
+                return false;
+            }
+            else
+            {
+                set.add(s.charAt(i));
+            }
+
+        }
+      return true;
+    }
+
     //Non Data Structure Implementation
 
-    private static boolean NDSI_Unique(String s) {
-        for (int i = 0; i < s.length(); i++) {
+    private static boolean NDSI_Unique(String s)
+    {
+        for (int i = 0; i < s.length(); i++)
+        {
             if (s.indexOf(s.charAt(i)) < i) //If the character at i occurs anytime before s.charAt(i), return false
             {
                 return false;
@@ -39,6 +64,7 @@ public class IsUnique {
         String sequence = "abcd";
         System.out.println(DSI_Unique(sequence));
         System.out.println(NDSI_Unique(sequence));
+        System.out.println(set_Unique(sequence));
     }
 
 }
