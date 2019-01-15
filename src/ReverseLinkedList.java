@@ -1,6 +1,7 @@
 /*
 Given a linked list, reverse it.
  */
+
 public class ReverseLinkedList
 {
     public static void main(String[] args)
@@ -20,7 +21,7 @@ public class ReverseLinkedList
     private static Node reverse(Node head)
     {
         Node prev = null;
-        Node current = head;
+        Node current = head; // Set the current node to the passed (head) node
         Node next = null;
 
         while (current!= null) //Go through the list
@@ -30,13 +31,12 @@ public class ReverseLinkedList
             prev = current; //Move the -1 node to the current position
             current = next; //Move to the next node
         }
-        head = prev;
+
+        head = prev; // Get the reversed head of the list
         return head;
 
     }
-
-
-
+    
     private static void printList(Node node)
     {
         while (node != null)
