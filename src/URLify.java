@@ -3,9 +3,11 @@ Write a method to replace all spaces in a string with '%20'
  */
 
 
-public class URLify {
+public class URLify
+{
     //String method
-    private static String URLify_this(String s) {
+    private static String URLify_this(String s)
+    {
         s = s.replaceAll(" ", "%20");
         return s;
     }
@@ -21,20 +23,25 @@ public class URLify {
 
         for (int i = 0; i < len; i++) //Count number of spaces
         {
-            if (chars[i] == ' ') {
+            if (chars[i] == ' ')
+            {
                 spaceCount++;
             }
         }
 
         index = len + (spaceCount * 3);
 
-        for (int i = len - 1; i >= 0; i--) {
-            if (chars[i] == ' ') {
+        for (int i = len - 1; i >= 0; i--)
+        {
+            if (chars[i] == ' ')
+            {
                 chars[index] = '0';
                 chars[index - 1] = '2';
                 chars[index - 2] = '%';
                 index -= 3;
-            } else {
+            }
+            else
+                {
                 chars[index] = chars[i];
                 index--;
             }

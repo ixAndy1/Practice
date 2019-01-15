@@ -3,7 +3,8 @@ is a permutation of the other
  */
 
 
-public class checkPermutation {
+public class checkPermutation
+{
     private static boolean check_Permutation(String s1, String s2)
     {
         if (s1.length() != s2.length()) //If sentences are different lengths, automatically return false
@@ -25,7 +26,8 @@ public class checkPermutation {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         //True
         String s1 = "abcd";
         String s2 = "dbca";
