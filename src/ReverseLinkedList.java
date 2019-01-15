@@ -36,7 +36,7 @@ public class ReverseLinkedList
         return head;
 
     }
-    
+
     private static void printList(Node node)
     {
         while (node != null)
