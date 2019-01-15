@@ -6,15 +6,19 @@ Given a string, write a function to check if it is a
 permutation of a palindrome.
  */
 public class PalindromePermutation {
-    private static boolean check_Palindrome_Permutation(String s) {
+    private static boolean check_Palindrome_Permutation(String s)
+    {
         Hashtable<Character, Integer> hashTable = new Hashtable<>();
 
         //Put everything into a hashtable
-        for (int i = 0; i < s.length(); i++) {
-            if (!hashTable.containsKey(s.charAt(i))) {
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (!hashTable.containsKey(s.charAt(i)))
+            {
                 //Add the character into the hashTable
                 hashTable.put(s.charAt(i), 1);
-            } else {
+            } else
+                {
                 //Update the count of that character in the hashtable
                 hashTable.put(s.charAt(i), hashTable.get(s.charAt(i)) + 1);
             }
